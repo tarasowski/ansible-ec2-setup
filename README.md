@@ -23,8 +23,19 @@ To connect from a controller host (where Ansible is installed) to another target
    ssh-keygen -t rsa -b 2048
    ssh-copy-id user@your_target_host_ip
    ```
+   Enrico:
+   ```bash
+   ssh key erzeugen:
+   ssh-keygen -t rsa -b 4096 -C "Ihre-E-Mail@example.com"
+   
+   Pub key kopieren:
+   ssh-copy-id -i /home/rico003/.ssh/vps_ec.pub root@173.111.44.567
 
-3. **Inventory File:**
+   wenn fehler auftaucht:
+   ssh-keygen -f "/home/rico003/.ssh/known_hosts" -R "173.249.46.248"
+   ```
+
+4. **Inventory File:**
    Create an inventory file that lists the target hosts you want to manage. This file typically named `inventory` can look like this:
 
    ```ini
@@ -34,7 +45,7 @@ To connect from a controller host (where Ansible is installed) to another target
 
    Replace `target_host_ip` with the actual IP address of your target host, `user` with the SSH user, and `/path/to/private/key.pem` with the path to your private key.
 
-4. **Test Connection:**
+5. **Test Connection:**
    Use the `ansible` command to test the connection to the target host:
 
    ```bash
@@ -43,7 +54,7 @@ To connect from a controller host (where Ansible is installed) to another target
 
    If everything is set up correctly, you should see a successful ping response.
 
-5. **Create and Run Ansible Playbooks:**
+6. **Create and Run Ansible Playbooks:**
    Write Ansible playbooks to define the tasks you want to perform on the target hosts. Playbooks are written in YAML and define the desired state of the system.
 
    For example, create a playbook file (`example.yml`):
