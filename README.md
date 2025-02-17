@@ -23,11 +23,13 @@ To connect from a controller host (where Ansible is installed) to another target
    ssh-keygen -t rsa -b 2048
    ssh-copy-id user@your_target_host_ip
    ```
-```bash
-# create a .pub key from a .pem (private key)
-ssh-keygen -y -f /path/to/your-key.pem > /path/to/your-key.pub
-ssh-copy-id user@your_taret_host_ip
-``` 
+   
+   When you have a .pem key
+   ```bash
+   # create a .pub key from a .pem (private key)
+   ssh-keygen -y -f /path/to/your-key.pem > /path/to/your-key.pub
+   ssh-copy-id user@your_taret_host_ip
+   ``` 
    
    Enrico:
    ```bash
